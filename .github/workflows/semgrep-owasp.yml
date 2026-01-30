@@ -21,3 +21,6 @@ jobs:
 
       - name: Run Semgrep Security Audit Rules (Fail on Findings)
         run: semgrep --config="p/security-audit" --error .
+      - name: Run Semgrep Scan (Fail on Findings)
+        run: semgrep --config=.semgrep/ --error .
+
