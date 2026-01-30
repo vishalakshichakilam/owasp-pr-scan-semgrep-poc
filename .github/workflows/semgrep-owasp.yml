@@ -9,18 +9,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout PR Code
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Step 2: Setup Python Environment
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
+      # Step 3: Install Semgrep
       - name: Install Semgrep
         run: |
           pip install semgrep
 
+      # Step 4: Run OWASP Top 10 Security Scan
       - name: Run OWASP Top 10 Scan
         run: |
-          semgrep --config=auto --error .
+          semgrep --config=p/owasp-top-ten --error .
