@@ -1,0 +1,6 @@
+rules:
+  - id: python-sql-injection-demo
+    pattern: conn.execute("..." + $X)
+    message: "Possible SQL Injection: unsafe query building with string concatenation"
+    severity: ERROR
+    languages: [python]
